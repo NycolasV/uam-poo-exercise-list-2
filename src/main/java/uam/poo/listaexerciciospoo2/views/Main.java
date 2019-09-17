@@ -1,46 +1,43 @@
 package uam.poo.listaexerciciospoo2.views;
 
 import java.util.Scanner;
-import uam.poo.listaexerciciospoo2.models.Botao;
-import uam.poo.listaexerciciospoo2.models.Empregado;
-import uam.poo.listaexerciciospoo2.models.Lampada;
+import uam.poo.listaexerciciospoo2.models.*;
 
 /**
  * @author NycolasVieira
  */
 public class Main {
-    public static Lampada lampada;
-    public static Empregado empregado;
-    public static Botao botao;
-    
     public static void main(String[] args){
-        lampada = new Lampada();
-        empregado = new Empregado();
-        botao = new Botao();
-        
-        teste();
+        testeEncapsulamento();
     }
    
-    public static void teste(){
+    public static void testeEncapsulamento(){
+        var lampada = new LampadaEncapsulada();
+        var empregado = new EmpregadoEncapsulado();
+        var botao = new BotaoEncapsulado();
         var input = new Scanner(System.in);
 
-        insertValuesLampada(input);
+        insertValuesLampada(input, lampada);
 
-        insertValuesEmpregado(input);
+        insertValuesEmpregado(input, empregado);
 
-        insertValuesBotao(input);
+        insertValuesBotao(input, botao);
 
         input.close();
     }
 
-    public static Lampada insertValuesLampada(Scanner input){
+    public static LampadaEncapsulada insertValuesLampada(Scanner input, LampadaEncapsulada lampada){
         try{
              System.out.println("Insira um preco na lampada: ");
-             lampada.preco = input.nextFloat();
+             lampada.setPreco(input.nextFloat());
+             while(lampada.getPreco() == 0){
+                 System.out.println("Preco invalido, insira novamente: ");
+                 lampada.setPreco(input.nextFloat());
+             }
              input.nextLine();
 
              System.out.println("A lampada esta acesa? ");
-             lampada.estaAcessa = input.nextBoolean();
+             lampada.setEstaAcessa(input.nextBoolean());
 
              System.out.println("--------------------------------");
              return lampada;
@@ -50,20 +47,28 @@ public class Main {
         }
     }
 
-    public static Empregado insertValuesEmpregado(Scanner input){
+    public static EmpregadoEncapsulado insertValuesEmpregado(Scanner input, EmpregadoEncapsulado empregado){
         try{
              System.out.println("Insira o id do empregado: ");
-             empregado.id = input.nextInt();
+             empregado.setId(input.nextInt());   
+             while(empregado.getId() == 0){
+                 System.out.println("Id invalido, insira novamente: ");
+                 empregado.setId(input.nextInt());   
+             }
              input.nextLine();
 
              System.out.println("Insira o primeiro nome do empregado: ");
-             empregado.primeiroNome = input.nextLine();
+             empregado.setPrimeiroNome(input.nextLine());
 
              System.out.println("Insira o sobrenome do empregado: ");
-             empregado.sobreNome = input.nextLine();
+             empregado.setSobreNome(input.nextLine());
 
              System.out.println("Insira o salario do empregado: ");
-             empregado.salario = input.nextFloat();
+             empregado.setSalario(input.nextFloat());
+             while(empregado.getSalario() == 0){
+                 System.out.println("Salario invalido, insira novamente: ");
+                 empregado.setSalario(input.nextFloat());
+             }
 
              System.out.println("--------------------------------");
              return empregado;
@@ -73,29 +78,37 @@ public class Main {
         }
     }
 
-    public static Botao insertValuesBotao(Scanner input){
+    public static BotaoEncapsulado insertValuesBotao(Scanner input, BotaoEncapsulado botao){
         try{
             System.out.println("Insira a posicao horizontal do botao: ");
-            botao.posX = input.nextFloat();
+            botao.setPosX(input.nextFloat());
+            while(botao.getPosX() == 0){
+                 System.out.println("Posicao X invalida, insira novamente: ");
+                 botao.setPosX(input.nextFloat());
+             }
             input.nextLine();
 
             System.out.println("Insira a posicao vertical do botao: ");
-            botao.posY = input.nextFloat();
+            botao.setPosY(input.nextFloat());
+            while(botao.getPosY()== 0){
+                 System.out.println("Posicao Y invalida, insira novamente: ");
+                 botao.setPosY(input.nextFloat());
+             }
             input.nextLine();
 
             System.out.println("Insira a largura do botao: ");
-            botao.largura = input.nextFloat();
+            botao.setLargura(input.nextFloat());
             input.nextLine();
 
             System.out.println("Insira a altura do botao: ");
-            botao.altura = input.nextFloat();
+            botao.setAltura(input.nextFloat());
             input.nextLine();
 
             System.out.println("Insira o texto do botao: ");
-            botao.texto = input.nextLine();
+            botao.setTexto(input.nextLine());
 
             System.out.println("Insira o formato do botao: ");
-            botao.formato = input.nextInt();
+            botao.setFormato(input.nextInt());
 
             System.out.println("--------------------------------");
             return botao;

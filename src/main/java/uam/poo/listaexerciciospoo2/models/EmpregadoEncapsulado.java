@@ -28,7 +28,7 @@ public class EmpregadoEncapsulado {
     }
 
     public void setId(int id) {
-        if(id < 0){
+        if(id <= 0){
             return;
         }
         
@@ -56,7 +56,7 @@ public class EmpregadoEncapsulado {
     }
 
     public void setSalario(float salario) {
-        if(salario < 0){
+        if(salario <= 0){
             return;
         }
         

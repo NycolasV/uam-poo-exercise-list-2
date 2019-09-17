@@ -34,7 +34,7 @@ public class BotaoEncapsulado {
     }
 
     public void setPosX(float posX) {
-        if(posX < 0){
+        if(posX <= 0){
             return;
         }
         
@@ -46,7 +46,7 @@ public class BotaoEncapsulado {
     }
 
     public void setPosY(float posY) {
-        if(posY < 0){
+        if(posY <= 0){
             return;
         }
         

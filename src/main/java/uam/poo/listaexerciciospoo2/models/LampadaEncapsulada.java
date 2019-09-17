@@ -21,7 +21,7 @@ public class LampadaEncapsulada {
     }
 
     public void setPreco(float preco) {
-        if(preco < 0){
+        if(preco <= 0){
             return;
         }
         
