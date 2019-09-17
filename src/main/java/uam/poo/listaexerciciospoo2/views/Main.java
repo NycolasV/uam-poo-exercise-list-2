@@ -1,5 +1,6 @@
 package uam.poo.listaexerciciospoo2.views;
 
+import java.util.Scanner;
 import uam.poo.listaexerciciospoo2.models.Botao;
 import uam.poo.listaexerciciospoo2.models.Empregado;
 import uam.poo.listaexerciciospoo2.models.Lampada;
@@ -9,7 +10,63 @@ import uam.poo.listaexerciciospoo2.models.Lampada;
  */
 public class Main {
    public static void main(String[] args){
-       teste();
+       testeIO();
+   }
+   
+   public static void testeIO(){
+       Lampada lampada1 = new Lampada();
+       Empregado empregado1 = new Empregado();
+       Botao botao1 = new Botao();
+       Scanner input = new Scanner(System.in);
+       
+       System.out.println("Insira um preco na lampada: ");
+       lampada1.preco = input.nextFloat();
+       input.nextLine();
+       
+       System.out.println("A lampada esta acesa? ");
+       lampada1.estaAcessa = input.nextBoolean();
+       input.nextLine();
+       
+       System.out.println("--------------------------------");
+       
+       System.out.println("Insira o id do empregado: ");
+       empregado1.id = input.nextInt();
+       input.nextLine();
+       
+       System.out.println("Insira o primeiro nome do empregado: ");
+       empregado1.primeiroNome = input.nextLine();
+       
+       System.out.println("Insira o sobrenome do empregado: ");
+       empregado1.sobreNome = input.nextLine();
+       
+       System.out.println("Insira o salario do empregado: ");
+       empregado1.salario = input.nextFloat();
+       input.nextLine();
+       
+       System.out.println("--------------------------------");
+       
+       System.out.println("Insira a posicao horizontal do botao: ");
+       botao1.posX = input.nextFloat();
+       input.nextLine();
+       
+       System.out.println("Insira a posicao vertical do botao: ");
+       botao1.posY = input.nextFloat();
+       input.nextLine();
+       
+       System.out.println("Insira a largura do botao: ");
+       botao1.largura = input.nextFloat();
+       input.nextLine();
+       
+       System.out.println("Insira a altura do botao: ");
+       botao1.altura = input.nextFloat();
+       input.nextLine();
+       
+       System.out.println("Insira o texto do botao: ");
+       botao1.texto = input.nextLine();
+       
+       System.out.println("Insira o formato do botao: ");
+       botao1.formato = input.nextInt();
+       input.close();
    }
    
    public static void teste(){
